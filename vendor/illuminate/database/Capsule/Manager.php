@@ -16,6 +16,7 @@ class Manager
 
     /**
      * The database manager instance.
+     * 数据库管理实例
      *
      * @var \Illuminate\Database\DatabaseManager
      */

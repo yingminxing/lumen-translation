@@ -349,6 +349,7 @@ if (! function_exists('class_basename')) {
 if (! function_exists('class_uses_recursive')) {
     /**
      * Returns all traits used by a class, its subclasses and trait of their traits.
+     * 返回这个类,这个类的子类使用的所有traits,
      *
      * @param  string  $class
      * @return array
@@ -837,6 +838,7 @@ if (! function_exists('title_case')) {
 if (! function_exists('trait_uses_recursive')) {
     /**
      * Returns all traits used by a trait and its traits.
+     * 返回所有的traits
      *
      * @param  string  $trait
      * @return array

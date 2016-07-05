@@ -8,6 +8,7 @@ interface Container
 {
     /**
      * Determine if the given abstract type has been bound.
+     * 判断给定的抽象类型是否被绑定
      *
      * @param  string  $abstract
      * @return bool
@@ -16,6 +17,7 @@ interface Container
 
     /**
      * Alias a type to a different name.
+     * 将类型取一个不同的名字
      *
      * @param  string  $abstract
      * @param  string  $alias
@@ -25,6 +27,7 @@ interface Container
 
     /**
      * Assign a set of tags to a given binding.
+     * 给定的绑定设置一系列的标签
      *
      * @param  array|string  $abstracts
      * @param  array|mixed   ...$tags
@@ -34,6 +37,7 @@ interface Container
 
     /**
      * Resolve all of the bindings for a given tag.
+     * 对一个给定的标签解除所有的绑定
      *
      * @param  array  $tag
      * @return array
@@ -42,6 +46,7 @@ interface Container
 
     /**
      * Register a binding with the container.
+     * 在容器上注册一个绑定
      *
      * @param  string|array  $abstract
      * @param  \Closure|string|null  $concrete
@@ -52,6 +57,7 @@ interface Container
 
     /**
      * Register a binding if it hasn't already been registered.
+     * 如果一个绑定没有注册,则注册它.
      *
      * @param  string  $abstract
      * @param  \Closure|string|null  $concrete
@@ -62,6 +68,7 @@ interface Container
 
     /**
      * Register a shared binding in the container.
+     * 在容器上注册一个分享绑定
      *
      * @param  string|array  $abstract
      * @param  \Closure|string|null  $concrete
@@ -71,6 +78,7 @@ interface Container
 
     /**
      * "Extend" an abstract type in the container.
+     * 在容器上扩展一个抽象类型
      *
      * @param  string    $abstract
      * @param  \Closure  $closure
@@ -82,6 +90,7 @@ interface Container
 
     /**
      * Register an existing instance as shared in the container.
+     * 在容器中将一个存在的实例注册成分享类型
      *
      * @param  string  $abstract
      * @param  mixed   $instance
@@ -91,6 +100,7 @@ interface Container
 
     /**
      * Define a contextual binding.
+     * 定义一个
      *
      * @param  string  $concrete
      * @return \Illuminate\Contracts\Container\ContextualBindingBuilder

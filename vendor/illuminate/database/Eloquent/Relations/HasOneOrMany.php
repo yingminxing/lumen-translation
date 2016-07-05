@@ -32,6 +32,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Create a new has one or many relationship instance.
+     * 创建一个新的一条或者多条关系实例
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  \Illuminate\Database\Eloquent\Model  $parent
@@ -49,6 +50,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Set the base constraints on the relation query.
+     * 在关系查询上设置基础限制
      *
      * @return void
      */
@@ -362,6 +364,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Get the key for comparing against the parent key in "has" query.
+     * 获取关键词与父类的has查询关键词进行比较
      *
      * @return string
      */
@@ -372,6 +375,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Get the foreign key for the relationship.
+     * 获取关系中的外键
      *
      * @return string
      */
@@ -382,6 +386,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Get the plain foreign key.
+     * 获取平凡的外键
      *
      * @return string
      */
@@ -394,6 +399,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Get the key value of the parent's local key.
+     * 获取父类中key对应的本地键值
      *
      * @return mixed
      */
@@ -404,6 +410,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Get the fully qualified parent key name.
+     * 获取父类中key对应所有记录
      *
      * @return string
      */

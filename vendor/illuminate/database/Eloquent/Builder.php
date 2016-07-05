@@ -630,6 +630,7 @@ class Builder
 
     /**
      * Eager load the relationships for the models.
+     * 为模型加载关联关系
      *
      * @param  array  $models
      * @return array
@@ -640,6 +641,7 @@ class Builder
             // For nested eager loads we'll skip loading them here and they will be set as an
             // eager load on the query to retrieve the relation so that they will be eager
             // loaded on that query, because that is where they get hydrated as models.
+            // 对于嵌套立即加载,我们将跳过加载它们.他们会被设置成立即加载的查询用来恢复关系.这样他们将在查询是被加载.
             if (strpos($name, '.') === false) {
                 $models = $this->loadRelation($models, $name, $constraints);
             }
@@ -650,6 +652,7 @@ class Builder
 
     /**
      * Eagerly load the relationship on a set of models.
+     * 在模型集合上立即加载关系
      *
      * @param  array  $models
      * @param  string  $name
@@ -661,6 +664,7 @@ class Builder
         // First we will "back up" the existing where conditions on the query so we can
         // add our eager constraints. Then we will merge the wheres that were on the
         // query back to it in order that any where conditions might be specified.
+        // 开始我们将备份这个正存在的查询条件,所以我们能够新增我们的立即加载.然后我们将在查询时合并wheres,那样任何where条件都将被识别.
         $relation = $this->getRelation($name);
 
         $relation->addEagerConstraints($models);
@@ -679,6 +683,7 @@ class Builder
 
     /**
      * Get the relation instance for the given relation name.
+     * 对于给定关系名称,获取关系实例
      *
      * @param  string  $name
      * @return \Illuminate\Database\Eloquent\Relations\Relation
@@ -688,6 +693,7 @@ class Builder
         // We want to run a relationship query without any constrains so that we will
         // not have to remove these where clauses manually which gets really hacky
         // and is error prone while we remove the developer's own where clauses.
+        // 我们想要运行没有任何限制的关系查询,???????
         $relation = Relation::noConstraints(function () use ($name) {
             return $this->getModel()->$name();
         });
@@ -706,6 +712,7 @@ class Builder
 
     /**
      * Get the deeply nested relations for a given top-level relation.
+     * 给定高级关系,获取深入的嵌套关系
      *
      * @param  string  $relation
      * @return array
@@ -728,6 +735,7 @@ class Builder
 
     /**
      * Determine if the relationship is nested.
+     * 判断关系是否时嵌套的.
      *
      * @param  string  $name
      * @param  string  $relation
@@ -742,6 +750,7 @@ class Builder
 
     /**
      * Apply the callback's query changes if the given "value" is true.
+     *
      *
      * @param  bool  $value
      * @param  \Closure  $callback

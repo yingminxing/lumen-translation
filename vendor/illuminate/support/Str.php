@@ -404,6 +404,7 @@ class Str
 
     /**
      * Determine if a given string starts with a given substring.
+     * 判断一个给定字符串是否是另外一个字符串开头
      *
      * @param  string  $haystack
      * @param  string|array  $needles
@@ -422,6 +423,7 @@ class Str
 
     /**
      * Convert a value to studly caps case.
+     * 将值进行格式化
      *
      * @param  string  $value
      * @return string

@@ -7,6 +7,7 @@ class ConnectionResolver implements ConnectionResolverInterface
     /**
      * All of the registered connections.
      *
+     *
      * @var array
      */
     protected $connections = [];

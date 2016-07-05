@@ -3,8 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\ExampleEvent;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Log;
 
 class ExampleListener
 {
@@ -15,7 +14,7 @@ class ExampleListener
      */
     public function __construct()
     {
-        //
+        Log::info('test', ['jzm2']);
     }
 
     /**
@@ -26,6 +25,10 @@ class ExampleListener
      */
     public function handle(ExampleEvent $event)
     {
-        //
+        if ($event->getName() == 'jzm') {
+            Log::info('test', [$event->getName()]);
+        } else {
+            Log::info('test', ['test11']);
+        }
     }
 }

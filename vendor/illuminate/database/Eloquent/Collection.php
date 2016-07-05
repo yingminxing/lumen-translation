@@ -11,6 +11,7 @@ class Collection extends BaseCollection implements QueueableCollection
 {
     /**
      * Find a model in the collection by key.
+     * 根据key在迭代器中找模型
      *
      * @param  mixed  $key
      * @param  mixed  $default
@@ -29,6 +30,7 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Load a set of relationships onto the collection.
+     *
      *
      * @param  mixed  $relations
      * @return $this

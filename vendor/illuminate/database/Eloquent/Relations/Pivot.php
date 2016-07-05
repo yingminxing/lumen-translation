@@ -51,6 +51,7 @@ class Pivot extends Model
         // The pivot model is a "dynamic" model since we will set the tables dynamically
         // for the instance. This allows it work for any intermediate tables for the
         // many to many relationship that are defined by this developer's classes.
+        // 关键模型是一个动态模型,我们可以为实例动态设置表名.这个为开发定义的多对多的表关系.
         $this->setTable($table);
 
         $this->setConnection($parent->getConnectionName());
@@ -62,6 +63,7 @@ class Pivot extends Model
         // We store off the parent instance so we will access the timestamp column names
         // for the model, since the pivot model timestamps aren't easily configurable
         // from the developer's point of view. We can use the parents to get these.
+        // 我们将父实例的信息保存下来.使得关键模型时间戳无法被修改.
         $this->parent = $parent;
 
         $this->exists = $exists;

@@ -15,6 +15,7 @@ class Dispatcher implements DispatcherContract
 {
     /**
      * The IoC container instance.
+     * IOC容器实例
      *
      * @var \Illuminate\Contracts\Container\Container
      */
@@ -22,6 +23,7 @@ class Dispatcher implements DispatcherContract
 
     /**
      * The registered event listeners.
+     * 已注册事件监听者
      *
      * @var array
      */
@@ -29,6 +31,7 @@ class Dispatcher implements DispatcherContract
 
     /**
      * The wildcard listeners.
+     * 统配的监听者
      *
      * @var array
      */
@@ -36,6 +39,7 @@ class Dispatcher implements DispatcherContract
 
     /**
      * The sorted event listeners.
+     * 已排序的事件监听者
      *
      * @var array
      */
@@ -43,6 +47,7 @@ class Dispatcher implements DispatcherContract
 
     /**
      * The event firing stack.
+     * 事件通知栈
      *
      * @var array
      */
@@ -50,6 +55,7 @@ class Dispatcher implements DispatcherContract
 
     /**
      * The queue resolver instance.
+     * 队列解决实例
      *
      * @var callable
      */
@@ -57,6 +63,7 @@ class Dispatcher implements DispatcherContract
 
     /**
      * Create a new event dispatcher instance.
+     * 创建一个新的事件分发实例
      *
      * @param  \Illuminate\Contracts\Container\Container|null  $container
      * @return void

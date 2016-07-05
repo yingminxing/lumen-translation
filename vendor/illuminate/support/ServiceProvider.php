@@ -9,6 +9,7 @@ abstract class ServiceProvider
 {
     /**
      * The application instance.
+     * 应用实例
      *
      * @var \Illuminate\Contracts\Foundation\Application
      */
@@ -16,6 +17,7 @@ abstract class ServiceProvider
 
     /**
      * Indicates if loading of the provider is deferred.
+     * 标示加载的提供者是否延期
      *
      * @var bool
      */
@@ -23,6 +25,7 @@ abstract class ServiceProvider
 
     /**
      * The paths that should be published.
+     * 需要发布的路径
      *
      * @var array
      */
@@ -30,6 +33,7 @@ abstract class ServiceProvider
 
     /**
      * The paths that should be published by group.
+     * 需要分组发布的路径
      *
      * @var array
      */
@@ -37,6 +41,7 @@ abstract class ServiceProvider
 
     /**
      * Create a new service provider instance.
+     * 创建一个新的服务提供实例
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void
@@ -48,6 +53,7 @@ abstract class ServiceProvider
 
     /**
      * Register the service provider.
+     * 注册服务提供者
      *
      * @return void
      */
@@ -55,6 +61,7 @@ abstract class ServiceProvider
 
     /**
      * Merge the given configuration with the existing configuration.
+     * 使用存在的参数合并给定参数
      *
      * @param  string  $path
      * @param  string  $key
@@ -69,6 +76,7 @@ abstract class ServiceProvider
 
     /**
      * Register a view file namespace.
+     * 注册一个文件视图命名空间
      *
      * @param  string  $path
      * @param  string  $namespace
@@ -85,6 +93,7 @@ abstract class ServiceProvider
 
     /**
      * Register a translation file namespace.
+     * 注册一个翻译文件的命名空间
      *
      * @param  string  $path
      * @param  string  $namespace
@@ -97,6 +106,7 @@ abstract class ServiceProvider
 
     /**
      * Register paths to be published by the publish command.
+     * 注册通过发布命名发布的路径
      *
      * @param  array  $paths
      * @param  string  $group
@@ -123,6 +133,7 @@ abstract class ServiceProvider
 
     /**
      * Get the paths to publish.
+     * 获取需要发布的路径
      *
      * @param  string  $provider
      * @param  string  $group
@@ -161,6 +172,7 @@ abstract class ServiceProvider
 
     /**
      * Register the package's custom Artisan commands.
+     * 注册包的自定义
      *
      * @param  array|mixed  $commands
      * @return void
@@ -181,6 +193,7 @@ abstract class ServiceProvider
 
     /**
      * Get the services provided by the provider.
+     * 获取提供者提供的服务
      *
      * @return array
      */
@@ -191,6 +204,7 @@ abstract class ServiceProvider
 
     /**
      * Get the events that trigger this service provider to register.
+     * 获取事件触发服务提供者来注册
      *
      * @return array
      */
@@ -201,6 +215,7 @@ abstract class ServiceProvider
 
     /**
      * Determine if the provider is deferred.
+     * 判断提供者是否延期
      *
      * @return bool
      */
@@ -211,6 +226,7 @@ abstract class ServiceProvider
 
     /**
      * Get a list of files that should be compiled for the package.
+     * 获取应该被编译成包的文件列表
      *
      * @return array
      */
@@ -221,6 +237,7 @@ abstract class ServiceProvider
 
     /**
      * Dynamically handle missing method calls.
+     * 缺省方法调用
      *
      * @param  string  $method
      * @param  array  $parameters

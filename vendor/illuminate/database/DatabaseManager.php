@@ -36,7 +36,7 @@ class DatabaseManager implements ConnectionResolverInterface
 
     /**
      * The custom connection resolvers.
-     * ???
+     * 驱动扩展(类似于oracle,sql server)
      *
      * @var array
      */
@@ -173,7 +173,7 @@ class DatabaseManager implements ConnectionResolverInterface
         // First we will check by the connection name to see if an extension has been
         // registered specifically for that connection. If it has we will call the
         // Closure and pass it the config allowing it to resolve the connection.
-        // ??????
+        //
         if (isset($this->extensions[$name])) {
             return call_user_func($this->extensions[$name], $config, $name);
         }

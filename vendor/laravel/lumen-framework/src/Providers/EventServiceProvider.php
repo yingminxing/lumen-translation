@@ -8,6 +8,7 @@ class EventServiceProvider extends ServiceProvider
 {
     /**
      * The event handler mappings for the application.
+     * 应用的事件监听
      *
      * @var array
      */
@@ -15,6 +16,7 @@ class EventServiceProvider extends ServiceProvider
 
     /**
      * The subscriber classes to register.
+     * 注册订阅类
      *
      * @var array
      */
@@ -22,6 +24,7 @@ class EventServiceProvider extends ServiceProvider
 
     /**
      * Register the application's event listeners.
+     * 注册应用的事件监听
      *
      * @return void
      */
@@ -50,6 +53,7 @@ class EventServiceProvider extends ServiceProvider
 
     /**
      * Get the events and handlers.
+     * 获取事件与处理器
      *
      * @return array
      */

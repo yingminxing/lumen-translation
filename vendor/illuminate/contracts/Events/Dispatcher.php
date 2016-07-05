@@ -6,6 +6,7 @@ interface Dispatcher
 {
     /**
      * Register an event listener with the dispatcher.
+     * 使用分发器注册一个事件监听者
      *
      * @param  string|array  $events
      * @param  mixed  $listener

@@ -41,6 +41,7 @@ abstract class Grammar
 
     /**
      * Wrap a value in keyword identifiers.
+     * 用关键词识别码
      *
      * @param  \Illuminate\Database\Query\Expression|string  $value
      * @param  bool    $prefixAlias
@@ -55,6 +56,7 @@ abstract class Grammar
         // If the value being wrapped has a column alias we will need to separate out
         // the pieces so we can wrap each of the segments of the expression on it
         // own, and then joins them both back together with the "as" connector.
+        // order as o, dc.order. abc_order
         if (strpos(strtolower($value), ' as ') !== false) {
             $segments = explode(' ', $value);
 
@@ -100,7 +102,7 @@ abstract class Grammar
 
     /**
      * Convert an array of column names into a delimited string.
-     *
+     * ?????
      * @param  array   $columns
      * @return string
      */
@@ -111,6 +113,7 @@ abstract class Grammar
 
     /**
      * Create query parameter place-holders for an array.
+     * 创建数组的占位符字符串
      *
      * @param  array   $values
      * @return string
@@ -144,6 +147,7 @@ abstract class Grammar
 
     /**
      * Determine if the given value is a raw expression.
+     * 判断给定的值是否是原生表达式
      *
      * @param  mixed  $value
      * @return bool

@@ -117,6 +117,7 @@ class Arr
 
     /**
      * Get all of the given array except for a specified array of items.
+     * 获取所有的给定数组出了明确排除数据的类目
      *
      * @param  array  $array
      * @param  array|string  $keys

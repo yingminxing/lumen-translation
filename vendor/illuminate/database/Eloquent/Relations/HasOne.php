@@ -8,6 +8,7 @@ class HasOne extends HasOneOrMany
 {
     /**
      * Get the results of the relationship.
+     * 获取关系的一条结果集
      *
      * @return mixed
      */
@@ -18,6 +19,7 @@ class HasOne extends HasOneOrMany
 
     /**
      * Initialize the relation on a set of models.
+     * 初始化模型集合的关联关系
      *
      * @param  array   $models
      * @param  string  $relation
@@ -34,6 +36,7 @@ class HasOne extends HasOneOrMany
 
     /**
      * Match the eagerly loaded results to their parents.
+     * 匹配即时加载结果到它们的父亲
      *
      * @param  array   $models
      * @param  \Illuminate\Database\Eloquent\Collection  $results
