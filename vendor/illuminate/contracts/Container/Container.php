@@ -100,7 +100,7 @@ interface Container
 
     /**
      * Define a contextual binding.
-     * 定义一个
+     * 定义一个上下文绑定
      *
      * @param  string  $concrete
      * @return \Illuminate\Contracts\Container\ContextualBindingBuilder
@@ -109,6 +109,7 @@ interface Container
 
     /**
      * Resolve the given type from the container.
+     * 将给定类型从容器中解除
      *
      * @param  string  $abstract
      * @param  array   $parameters
@@ -118,6 +119,7 @@ interface Container
 
     /**
      * Call the given Closure / class@method and inject its dependencies.
+     * 调用给定的闭包或者类方法,然后注入它的依赖关系
      *
      * @param  callable|string  $callback
      * @param  array  $parameters
@@ -128,6 +130,7 @@ interface Container
 
     /**
      * Determine if the given abstract type has been resolved.
+     * 判断给定的抽象类型是否被解除
      *
      * @param  string $abstract
      * @return bool
@@ -136,6 +139,7 @@ interface Container
 
     /**
      * Register a new resolving callback.
+     * 注册一个新的解除调用
      *
      * @param  string    $abstract
      * @param  \Closure|null  $callback
@@ -145,6 +149,7 @@ interface Container
 
     /**
      * Register a new after resolving callback.
+     * 在解除调用后注册一个新的
      *
      * @param  string    $abstract
      * @param  \Closure|null  $callback
