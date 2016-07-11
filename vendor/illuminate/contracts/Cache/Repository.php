@@ -4,6 +4,7 @@ namespace Illuminate\Contracts\Cache;
 
 use Closure;
 
+// 仓库接口
 interface Repository
 {
     /**

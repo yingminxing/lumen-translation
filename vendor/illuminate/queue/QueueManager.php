@@ -7,10 +7,12 @@ use InvalidArgumentException;
 use Illuminate\Contracts\Queue\Factory as FactoryContract;
 use Illuminate\Contracts\Queue\Monitor as MonitorContract;
 
+// 队列管理器
 class QueueManager implements FactoryContract, MonitorContract
 {
     /**
      * The application instance.
+     * 应用实例
      *
      * @var \Illuminate\Foundation\Application
      */
@@ -18,6 +20,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * The array of resolved queue connections.
+     * 已解析的队列连接的数组
      *
      * @var array
      */
@@ -25,6 +28,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * The array of resolved queue connectors.
+     * 已解析的队列构造器的数组
      *
      * @var array
      */
@@ -43,6 +47,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the before job event.
+     * 在任务事件前注册事件监听
      *
      * @param  mixed  $callback
      * @return void
@@ -54,6 +59,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the after job event.
+     * 在任务事件后注册事件监听
      *
      * @param  mixed  $callback
      * @return void
@@ -65,6 +71,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the exception occurred job event.
+     * 在任务事件发生异常的时候注册事件监听
      *
      * @param  mixed  $callback
      * @return void
@@ -76,6 +83,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the daemon queue loop.
+     * 为后台程序循环队列注册一个事件监听
      *
      * @param  mixed  $callback
      * @return void
@@ -87,6 +95,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the failed job event.
+     * 为失败的任务事件注册一个事件监听
      *
      * @param  mixed  $callback
      * @return void
@@ -98,6 +107,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the daemon queue stopping.
+     * 为后台程序停止注册一个事件监听
      *
      * @param  mixed  $callback
      * @return void
@@ -109,6 +119,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Determine if the driver is connected.
+     * 判断驱动是否已经连接
      *
      * @param  string  $name
      * @return bool
@@ -120,6 +131,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Resolve a queue connection instance.
+     * 解决一个队列连接实例
      *
      * @param  string  $name
      * @return \Illuminate\Contracts\Queue\Queue
@@ -131,6 +143,7 @@ class QueueManager implements FactoryContract, MonitorContract
         // If the connection has not been resolved yet we will resolve it now as all
         // of the connections are resolved when they are actually needed so we do
         // not make any unnecessary connection to the various queue end-points.
+
         if (! isset($this->connections[$name])) {
             $this->connections[$name] = $this->resolve($name);
 
@@ -186,6 +199,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Add a queue connection resolver.
+     * 新增队列连接解析器
      *
      * @param  string    $driver
      * @param  \Closure  $resolver
@@ -213,6 +227,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Get the name of the default queue connection.
+     * 获取默认队列连接的名称
      *
      * @return string
      */
@@ -223,6 +238,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Set the name of the default queue connection.
+     * 设置默认连接驱动名称
      *
      * @param  string  $name
      * @return void
@@ -234,6 +250,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Get the full name for the given connection.
+     * 获取所有的给定的链接名称
      *
      * @param  string  $connection
      * @return string
@@ -245,6 +262,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Determine if the application is in maintenance mode.
+     * 判断这个应用实例是否在维护模式
      *
      * @return bool
      */
@@ -255,6 +273,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Dynamically pass calls to the default connection.
+     * 动态传递调用到默认的连接
      *
      * @param  string  $method
      * @param  array   $parameters

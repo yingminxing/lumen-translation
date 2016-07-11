@@ -7,6 +7,7 @@ trait Queueable
     /**
      * The name of the connection the job should be sent to.
      *
+     *
      * @var string|null
      */
     public $connection;
@@ -20,6 +21,7 @@ trait Queueable
 
     /**
      * The number of seconds before the job should be made available.
+     * 任务多久生效
      *
      * @var int|null
      */
@@ -27,6 +29,7 @@ trait Queueable
 
     /**
      * Set the desired connection for the job.
+     * 设置任务需要的连接
      *
      * @param  string|null  $connection
      * @return $this
@@ -40,6 +43,7 @@ trait Queueable
 
     /**
      * Set the desired queue for the job.
+     * 设置任务需要的队列
      *
      * @param  string|null  $queue
      * @return $this
@@ -53,6 +57,7 @@ trait Queueable
 
     /**
      * Set the desired delay for the job.
+     * 设置任务需要的延迟
      *
      * @param  int|null  $delay
      * @return $this

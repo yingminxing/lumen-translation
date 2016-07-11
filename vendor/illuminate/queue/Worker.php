@@ -50,6 +50,7 @@ class Worker
 
     /**
      * Create a new queue worker.
+     * 创建一个新的队列工作者
      *
      * @param  \Illuminate\Queue\QueueManager  $manager
      * @param  \Illuminate\Queue\Failed\FailedJobProviderInterface  $failer
@@ -67,6 +68,7 @@ class Worker
 
     /**
      * Listen to the given queue in a loop.
+     * 循环监听给定队列
      *
      * @param  string  $connectionName
      * @param  string  $queue
@@ -97,6 +99,7 @@ class Worker
 
     /**
      * Run the next job for the daemon worker.
+     * 为后台程序运行下一个任务
      *
      * @param  string  $connectionName
      * @param  string  $queue
@@ -122,6 +125,7 @@ class Worker
 
     /**
      * Determine if the daemon should process on this iteration.
+     * 判断这个后台程序是否应该在这个迭代器中执行
      *
      * @return bool
      */
@@ -133,6 +137,7 @@ class Worker
 
     /**
      * Listen to the given queue.
+     * 监听给定的队列
      *
      * @param  string  $connectionName
      * @param  string  $queue
@@ -151,6 +156,7 @@ class Worker
             // If we're able to pull a job off of the stack, we will process it and
             // then immediately return back out. If there is no job on the queue
             // we will "sleep" the worker for the specified number of seconds.
+            // 如果我们将任务从队列栈中去除,我们将处理并返回它.如果队列中没有任务,我们将休眠固定几秒钟
             if (! is_null($job)) {
                 return $this->process(
                     $this->manager->getName($connectionName), $job, $maxTries, $delay
@@ -169,6 +175,7 @@ class Worker
 
     /**
      * Get the next job from the queue connection.
+     * 从连接的队列获取下一个任务
      *
      * @param  \Illuminate\Contracts\Queue\Queue  $connection
      * @param  string  $queue
@@ -189,6 +196,7 @@ class Worker
 
     /**
      * Process a given job from the queue.
+     * 从队列中处理给定的任务
      *
      * @param  string  $connection
      * @param  \Illuminate\Contracts\Queue\Job  $job
@@ -200,6 +208,7 @@ class Worker
      */
     public function process($connection, Job $job, $maxTries = 0, $delay = 0)
     {
+        // 如果最大尝试次数大于0,并且任务的尝试次数大于最大值,则返回失败
         if ($maxTries > 0 && $job->attempts() > $maxTries) {
             return $this->logFailedJob($connection, $job);
         }
@@ -210,6 +219,7 @@ class Worker
             // First we will fire off the job. Once it is done we will see if it will be
             // automatically deleted after processing and if so we'll fire the delete
             // method on the job. Otherwise, we will just keep on running our jobs.
+            // 我们先判断任务是否失败,如果是的话,我们将删除该任务.否则我们将保持运行我们的任务
             $job->fire();
 
             $this->raiseAfterJobEvent($connection, $job);
@@ -224,6 +234,7 @@ class Worker
 
     /**
      * Handle an exception that occurred while the job was running.
+     * 当任务正在运行的时候处理运行时异常
      *
      * @param  string  $connection
      * @param  \Illuminate\Contracts\Queue\Job  $job
@@ -238,6 +249,7 @@ class Worker
         // If we catch an exception, we will attempt to release the job back onto
         // the queue so it is not lost. This will let is be retried at a later
         // time by another listener (or the same one). We will do that here.
+        // 如果我们捕获到异常,我们将尝试释放任务回到队列以至于不会丢失.这会使后面的监听者再次监听
         try {
             $this->raiseExceptionOccurredJobEvent(
                 $connection, $job, $e
@@ -253,6 +265,7 @@ class Worker
 
     /**
      * Raise the before queue job event.
+     * 在队列任务事件前通知
      *
      * @param  string  $connection
      * @param  \Illuminate\Contracts\Queue\Job  $job
@@ -269,6 +282,7 @@ class Worker
 
     /**
      * Raise the after queue job event.
+     * 在队列任务事件后通知
      *
      * @param  string  $connection
      * @param  \Illuminate\Contracts\Queue\Job  $job
@@ -285,6 +299,7 @@ class Worker
 
     /**
      * Raise the exception occurred queue job event.
+     * 通知在队列任务事件中发生的异常
      *
      * @param  string  $connection
      * @param  \Illuminate\Contracts\Queue\Job  $job
@@ -302,6 +317,7 @@ class Worker
 
     /**
      * Log a failed job into storage.
+     * 将已经失败的任务记录到存储中
      *
      * @param  string  $connection
      * @param  \Illuminate\Contracts\Queue\Job  $job
@@ -324,6 +340,7 @@ class Worker
 
     /**
      * Raise the failed queue job event.
+     * 通知任务事件已经失败
      *
      * @param  string  $connection
      * @param  \Illuminate\Contracts\Queue\Job  $job
@@ -341,6 +358,7 @@ class Worker
 
     /**
      * Determine if the memory limit has been exceeded.
+     * 判断内存限制是否溢出(单位是M)
      *
      * @param  int   $memoryLimit
      * @return bool
@@ -352,6 +370,7 @@ class Worker
 
     /**
      * Stop listening and bail out of the script.
+     * 停止监听,跳出脚本
      *
      * @return void
      */
@@ -364,6 +383,7 @@ class Worker
 
     /**
      * Sleep the script for a given number of seconds.
+     * 将脚本休眠给定的秒数
      *
      * @param  int   $seconds
      * @return void
@@ -375,6 +395,7 @@ class Worker
 
     /**
      * Get the last queue restart timestamp, or null.
+     * 获取最近队列重启的时间戳
      *
      * @return int|null
      */
@@ -387,6 +408,7 @@ class Worker
 
     /**
      * Determine if the queue worker should restart.
+     * 判断给定的队列工作者是否应该重启
      *
      * @param  int|null  $lastRestart
      * @return bool
@@ -398,6 +420,7 @@ class Worker
 
     /**
      * Set the exception handler to use in Daemon mode.
+     * 使用后台程序模式设置异常处理
      *
      * @param  \Illuminate\Contracts\Debug\ExceptionHandler  $handler
      * @return void
@@ -409,6 +432,7 @@ class Worker
 
     /**
      * Set the cache repository implementation.
+     * 设置缓存仓库
      *
      * @param  \Illuminate\Contracts\Cache\Repository  $cache
      * @return void
@@ -420,6 +444,7 @@ class Worker
 
     /**
      * Get the queue manager instance.
+     * 获取队列管理实例
      *
      * @return \Illuminate\Queue\QueueManager
      */
@@ -430,6 +455,7 @@ class Worker
 
     /**
      * Set the queue manager instance.
+     * 设置队列管理实例
      *
      * @param  \Illuminate\Queue\QueueManager  $manager
      * @return void

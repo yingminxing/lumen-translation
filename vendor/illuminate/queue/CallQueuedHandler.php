@@ -5,6 +5,7 @@ namespace Illuminate\Queue;
 use Illuminate\Contracts\Queue\Job;
 use Illuminate\Contracts\Bus\Dispatcher;
 
+// 调用队列处理器
 class CallQueuedHandler
 {
     /**
@@ -17,6 +18,7 @@ class CallQueuedHandler
     /**
      * Create a new handler instance.
      *
+     *
      * @param  \Illuminate\Contracts\Bus\Dispatcher  $dispatcher
      * @return void
      */
@@ -27,6 +29,7 @@ class CallQueuedHandler
 
     /**
      * Handle the queued job.
+     * 处理一个队列中的任务
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  array  $data
@@ -47,6 +50,7 @@ class CallQueuedHandler
 
     /**
      * Set the job instance of the given class if necessary.
+     * 在给定的实例上设置任务(如果给定实例的类属于InteractsWithQueue队列)
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  mixed  $instance
@@ -63,6 +67,7 @@ class CallQueuedHandler
 
     /**
      * Call the failed method on the job instance.
+     * 在任务实例上调用失败的方法(如果命令中存在failed)
      *
      * @param  array  $data
      * @return void

@@ -6,6 +6,7 @@ interface Job
 {
     /**
      * Fire the job.
+     * 通知任务
      *
      * @return void
      */
@@ -13,6 +14,7 @@ interface Job
 
     /**
      * Delete the job from the queue.
+     * 队列删除任务
      *
      * @return void
      */
@@ -20,6 +22,7 @@ interface Job
 
     /**
      * Determine if the job has been deleted.
+     * 判断此任务是否被删除
      *
      * @return bool
      */
@@ -27,6 +30,7 @@ interface Job
 
     /**
      * Release the job back into the queue.
+     * 发布任务到队列
      *
      * @param  int   $delay
      * @return void
@@ -35,6 +39,7 @@ interface Job
 
     /**
      * Determine if the job has been deleted or released.
+     * 判断此任务是否被删除或者发布
      *
      * @return bool
      */
@@ -43,12 +48,14 @@ interface Job
     /**
      * Get the number of times the job has been attempted.
      *
+     *
      * @return int
      */
     public function attempts();
 
     /**
      * Get the name of the queued job class.
+     * 获取队列任务类的名称
      *
      * @return string
      */
@@ -63,6 +70,7 @@ interface Job
 
     /**
      * Get the name of the queue the job belongs to.
+     * 获取队列任务名称
      *
      * @return string
      */
@@ -70,6 +78,7 @@ interface Job
 
      /**
       * Get the raw body string for the job.
+      * 获取任务的原始body字符串
       *
       * @return string
       */

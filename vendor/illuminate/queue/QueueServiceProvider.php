@@ -20,6 +20,7 @@ class QueueServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
+     * 判断加载的提供者是否延迟
      *
      * @var bool
      */
@@ -27,6 +28,7 @@ class QueueServiceProvider extends ServiceProvider
 
     /**
      * Register the service provider.
+     * 注册服务器提供者
      *
      * @return void
      */
@@ -45,6 +47,7 @@ class QueueServiceProvider extends ServiceProvider
 
     /**
      * Register the queue manager.
+     * 注册队列管理者
      *
      * @return void
      */
@@ -54,6 +57,7 @@ class QueueServiceProvider extends ServiceProvider
             // Once we have an instance of the queue manager, we will register the various
             // resolvers for the queue connectors. These connectors are responsible for
             // creating the classes that accept queue configs and instantiate queues.
+            // 一旦有队列管理者的实例,我们将注册各种队列连接器.这些连接器是用来创建类,同时接受队列参数和实例队列.
             $manager = new QueueManager($app);
 
             $this->registerConnectors($manager);
@@ -140,6 +144,7 @@ class QueueServiceProvider extends ServiceProvider
 
     /**
      * Register the connectors on the queue manager.
+     * 在队列管理器上注册连接器
      *
      * @param  \Illuminate\Queue\QueueManager  $manager
      * @return void
@@ -153,6 +158,7 @@ class QueueServiceProvider extends ServiceProvider
 
     /**
      * Register the Null queue connector.
+     * 注册Null队列连接器
      *
      * @param  \Illuminate\Queue\QueueManager  $manager
      * @return void
@@ -166,6 +172,7 @@ class QueueServiceProvider extends ServiceProvider
 
     /**
      * Register the Sync queue connector.
+     * 注册一个同步队列连接器
      *
      * @param  \Illuminate\Queue\QueueManager  $manager
      * @return void

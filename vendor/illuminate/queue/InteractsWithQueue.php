@@ -8,6 +8,7 @@ trait InteractsWithQueue
 {
     /**
      * The underlying queue job instance.
+     * 获取任务实例
      *
      * @var \Illuminate\Contracts\Queue\Job
      */
@@ -15,6 +16,7 @@ trait InteractsWithQueue
 
     /**
      * Get the number of times the job has been attempted.
+     * 获取任务期望次数
      *
      * @return int
      */
@@ -25,6 +27,7 @@ trait InteractsWithQueue
 
     /**
      * Delete the job from the queue.
+     * 队列删除任务
      *
      * @return void
      */
@@ -37,6 +40,7 @@ trait InteractsWithQueue
 
     /**
      * Fail the job from the queue.
+     * 将队列任务标示成失败
      *
      * @return void
      */
@@ -49,6 +53,7 @@ trait InteractsWithQueue
 
     /**
      * Release the job back into the queue.
+     * 将任务发布到队列中
      *
      * @param  int   $delay
      * @return void
@@ -62,6 +67,7 @@ trait InteractsWithQueue
 
     /**
      * Set the base queue job instance.
+     * 设置基础任务实例
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @return $this

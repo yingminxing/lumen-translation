@@ -8,6 +8,7 @@ use Illuminate\Redis\Database;
 use Illuminate\Queue\Jobs\RedisJob;
 use Illuminate\Contracts\Queue\Queue as QueueContract;
 
+// Redis队列类(需要compose安装基础类库)
 class RedisQueue extends Queue implements QueueContract
 {
     /**
@@ -55,6 +56,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Push a new job onto the queue.
+     * 将任务推送到队列
      *
      * @param  string  $job
      * @param  mixed   $data
@@ -68,6 +70,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Push a raw payload onto the queue.
+     * 将原生有效的推送给队列
      *
      * @param  string  $payload
      * @param  string  $queue
@@ -83,6 +86,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Push a new job onto the queue after a delay.
+     * 延迟后推送任务到队列
      *
      * @param  \DateTime|int  $delay
      * @param  string  $job
@@ -103,6 +107,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Release a reserved job back onto the queue.
+     * 将任务设置一个延迟开始时间,并加到队列中
      *
      * @param  string  $queue
      * @param  string  $payload
@@ -119,6 +124,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Pop the next job off of the queue.
+     * 从队列中取出一个任务
      *
      * @param  string  $queue
      * @return \Illuminate\Contracts\Queue\Job|null
@@ -156,6 +162,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Migrate all of the waiting jobs in the queue.
+     * 移动队列中所有正在等待的任务
      *
      * @param  string  $queue
      * @return void
@@ -169,6 +176,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Migrate the delayed jobs that are ready to the regular queue.
+     * 移动延迟的任务到定期的队列
      *
      * @param  string  $from
      * @param  string  $to
@@ -199,6 +207,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Get the expired jobs from a given queue.
+     * 获取给定的队列中将要过去的任务
      *
      * @param  \Predis\Transaction\MultiExec  $transaction
      * @param  string  $from
@@ -212,6 +221,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Remove the expired jobs from a given queue.
+     * 从给定队列删除过期的任务
      *
      * @param  \Predis\Transaction\MultiExec  $transaction
      * @param  string  $from
@@ -227,6 +237,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Push all of the given jobs onto another queue.
+     * 将所有的任务推送到另一个队列
      *
      * @param  \Predis\Transaction\MultiExec  $transaction
      * @param  string  $to
@@ -240,6 +251,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Create a payload string from the given job and data.
+     * 从给定的任务和数据创建有效的字符串
      *
      * @param  string  $job
      * @param  mixed   $data
@@ -257,6 +269,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Get a random ID string.
+     * 获取一个随机id字符串
      *
      * @return string
      */
@@ -267,6 +280,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Get the queue or return the default.
+     * 获取队列或者返回默认值
      *
      * @param  string|null  $queue
      * @return string
@@ -278,6 +292,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Get the connection for the queue.
+     * 获取队列的连接
      *
      * @return \Predis\ClientInterface
      */
@@ -288,6 +303,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Get the underlying Redis instance.
+     * 获取优先的redis实例
      *
      * @return \Illuminate\Redis\Database
      */
@@ -298,6 +314,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Get the expiration time in seconds.
+     * 获取过期时间
      *
      * @return int|null
      */
@@ -308,6 +325,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Set the expiration time in seconds.
+     * 设置过期时间
      *
      * @param  int|null  $seconds
      * @return void

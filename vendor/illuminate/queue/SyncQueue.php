@@ -12,6 +12,7 @@ class SyncQueue extends Queue implements QueueContract
 {
     /**
      * Push a new job onto the queue.
+     * 将新任务推送到队列
      *
      * @param  string  $job
      * @param  mixed   $data
@@ -87,6 +88,7 @@ class SyncQueue extends Queue implements QueueContract
 
     /**
      * Resolve a Sync job instance.
+     * 返回同步任务实例
      *
      * @param  string  $payload
      * @return \Illuminate\Queue\Jobs\SyncJob
@@ -98,6 +100,7 @@ class SyncQueue extends Queue implements QueueContract
 
     /**
      * Raise the before queue job event.
+     * 在队列任务事件前通知(任务开始前的通知信息)
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @return void
@@ -113,6 +116,7 @@ class SyncQueue extends Queue implements QueueContract
 
     /**
      * Raise the after queue job event.
+     * 在队列任务事件后通知(任务开始后的通知信息)
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @return void
@@ -128,6 +132,7 @@ class SyncQueue extends Queue implements QueueContract
 
     /**
      * Raise the exception occurred queue job event.
+     * 在队列任务事件碰到异常后通知
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  \Throwable  $exception
@@ -144,6 +149,7 @@ class SyncQueue extends Queue implements QueueContract
 
     /**
      * Handle the failed job.
+     * 处理已经失败的任务
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @return array
@@ -157,6 +163,7 @@ class SyncQueue extends Queue implements QueueContract
 
     /**
      * Raise the failed queue job event.
+     * 在队列任务事件失败后通知
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @return void

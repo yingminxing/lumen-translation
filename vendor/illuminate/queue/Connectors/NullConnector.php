@@ -8,6 +8,7 @@ class NullConnector implements ConnectorInterface
 {
     /**
      * Establish a queue connection.
+     * 建立一个队列链接
      *
      * @param  array  $config
      * @return \Illuminate\Contracts\Queue\Queue

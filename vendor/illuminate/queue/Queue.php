@@ -14,6 +14,7 @@ abstract class Queue
 {
     /**
      * The IoC container instance.
+     * 创建Ioc容器实例
      *
      * @var \Illuminate\Container\Container
      */
@@ -21,6 +22,7 @@ abstract class Queue
 
     /**
      * Push a new job onto the queue.
+     * 将新任务推送到队列
      *
      * @param  string  $queue
      * @param  string  $job
@@ -34,6 +36,7 @@ abstract class Queue
 
     /**
      * Push a new job onto the queue after a delay.
+     * 在延迟后将任务插入队列
      *
      * @param  string  $queue
      * @param  \DateTime|int  $delay
@@ -48,6 +51,7 @@ abstract class Queue
 
     /**
      * Push an array of jobs onto the queue.
+     * 将数组的任务插入队列
      *
      * @param  array   $jobs
      * @param  mixed   $data
@@ -63,6 +67,7 @@ abstract class Queue
 
     /**
      * Create a payload string from the given job and data.
+     * 从给定任务和数据中创建一个有效的字符串
      *
      * @param  string  $job
      * @param  mixed   $data
@@ -97,6 +102,7 @@ abstract class Queue
 
     /**
      * Prepare any queueable entities for storage in the queue.
+     * 准备任何可以队列化的实体存储在队列中
      *
      * @param  mixed  $data
      * @return mixed
@@ -122,6 +128,8 @@ abstract class Queue
 
     /**
      * Prepare a single queueable entity for storage on the queue.
+     * 准备单个可序列化实体存储在队列中
+     * ::entity::|getClass|3
      *
      * @param  mixed  $value
      * @return mixed
@@ -137,6 +145,7 @@ abstract class Queue
 
     /**
      * Create a payload string for the given Closure job.
+     * 将任务序列化加密,创建有效的字符串
      *
      * @param  \Closure  $job
      * @param  mixed     $data
@@ -151,6 +160,7 @@ abstract class Queue
 
     /**
      * Set additional meta on a payload string.
+     * 在有效的字符串上设置额外的元素
      *
      * @param  string  $payload
      * @param  string  $key
@@ -166,6 +176,7 @@ abstract class Queue
 
     /**
      * Calculate the number of seconds with the given delay.
+     * 计算给定的延迟距离当前的延迟数,如果延迟时间小于当前时间则取0
      *
      * @param  \DateTime|int  $delay
      * @return int
@@ -181,6 +192,7 @@ abstract class Queue
 
     /**
      * Get the current UNIX timestamp.
+     * 获取当前的unix时间戳
      *
      * @return int
      */
@@ -191,6 +203,7 @@ abstract class Queue
 
     /**
      * Set the IoC container instance.
+     * 设置IOC容器实例
      *
      * @param  \Illuminate\Container\Container  $container
      * @return void
@@ -202,6 +215,7 @@ abstract class Queue
 
     /**
      * Set the encrypter instance.
+     * 设置解析实例
      *
      * @param  \Illuminate\Contracts\Encryption\Encrypter  $crypt
      * @return void

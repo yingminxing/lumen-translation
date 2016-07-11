@@ -263,6 +263,7 @@ class Arr
     /**
      * Get an item from an array using "dot" notation.
      *
+     *
      * @param  \ArrayAccess|array  $array
      * @param  string  $key
      * @param  mixed   $default
@@ -438,6 +439,7 @@ class Arr
 
     /**
      * Set an array item to a given value using "dot" notation.
+     * 设置
      *
      * If no key is given to the method, the entire array will be replaced.
      *
@@ -460,6 +462,7 @@ class Arr
             // If the key doesn't exist at this depth, we will just create an empty array
             // to hold the next value, allowing us to create the arrays to hold final
             // values at the correct depth. Then we'll keep digging into the array.
+            // 如果不存在某个键对应的值,则使用空数组初始化它.同时将数组的地址保存起来.
             if (! isset($array[$key]) || ! is_array($array[$key])) {
                 $array[$key] = [];
             }
@@ -467,6 +470,7 @@ class Arr
             $array = &$array[$key];
         }
 
+        // ????????
         $array[array_shift($keys)] = $value;
 
         return $array;

@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Test extends Model
 {
-    protected $table = 'groupbuy';
-
-    protected $connection = 'mysql';
+    protected $table = 'job';
 
 }

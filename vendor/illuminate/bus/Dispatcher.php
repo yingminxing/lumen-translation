@@ -57,6 +57,7 @@ class Dispatcher implements DispatcherContract, QueueingDispatcher
 
     /**
      * Dispatch a command to its appropriate handler.
+     * 分发任务到合适的处理器(如果当前是队列命令,则将命令分发到队列,否则分发到当前合适的处理器)
      *
      * @param  mixed  $command
      * @return mixed

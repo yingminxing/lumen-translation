@@ -12,6 +12,7 @@ trait SerializesModels
 {
     /**
      * Prepare the instance for serialization.
+     * 准备序列化的实例
      *
      * @return array
      */
@@ -32,6 +33,7 @@ trait SerializesModels
 
     /**
      * Restore the model after serialization.
+     * 序列化后重建模型
      *
      * @return void
      */
@@ -46,6 +48,7 @@ trait SerializesModels
 
     /**
      * Get the property value prepared for serialization.
+     * 为序列化准备好
      *
      * @param  mixed  $value
      * @return mixed
@@ -61,6 +64,7 @@ trait SerializesModels
 
     /**
      * Get the restored property value after deserialization.
+     * 还原序列化后获取还原后的属性值
      *
      * @param  mixed  $value
      * @return mixed
@@ -78,6 +82,7 @@ trait SerializesModels
 
     /**
      * Restore a queueable collection instance.
+     * 重建一个队列化的迭代实例
      *
      * @param  \Illuminate\Contracts\Database\ModelIdentifier  $value
      * @return \Illuminate\Database\Eloquent\Collection
@@ -96,6 +101,7 @@ trait SerializesModels
 
     /**
      * Get the property value for the given property.
+     * 获取给定属性的属性值
      *
      * @param  \ReflectionProperty  $property
      * @return mixed

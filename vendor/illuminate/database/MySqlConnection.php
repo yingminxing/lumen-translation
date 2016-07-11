@@ -13,6 +13,7 @@ class MySqlConnection extends Connection
     /**
      * Get a schema builder instance for the connection.
      *
+     *
      * @return \Illuminate\Database\Schema\MySqlBuilder
      */
     public function getSchemaBuilder()

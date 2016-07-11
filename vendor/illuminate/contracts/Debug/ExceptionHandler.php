@@ -4,6 +4,7 @@ namespace Illuminate\Contracts\Debug;
 
 use Exception;
 
+// 异常处理接口
 interface ExceptionHandler
 {
     /**
